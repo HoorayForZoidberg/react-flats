@@ -25,7 +25,7 @@ class FlatList extends Component {
     return (
       <div className="flat-list">
         {Flats.map((flat) => {
-          return <Flat flat={flat} key={flat.name} selected={this.selectFlat(flat)} updateSelected={this.updateSelected} />;
+          return <Flat flat={flat} key={flat.name} selected={this.selectFlat(flat)} updateSelected={this.updateSelected} updateCoord={this.props.updateCoord} />;
         })}
       </div>
     );

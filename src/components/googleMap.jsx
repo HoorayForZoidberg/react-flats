@@ -7,10 +7,6 @@ class GoogleMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      center: {
-        lat: 12,
-        lng: 12
-      },
       zoom: 11
     };
   }
@@ -21,12 +17,12 @@ class GoogleMap extends Component {
         <div style={{ height: '100vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: "AIzaSyCWUeVUVnYwzMMXGuDvap1J2uW8yS523T8" }}
-            defaultCenter={this.state.center}
+            defaultCenter={this.props.coord}
             defaultZoom={this.state.zoom}
           >
             <Marker
-              lat={this.state.center.lat}
-              lng={this.state.center.lng}
+              lat={this.props.coord.lat}
+              lng={this.props.coord.lng}
               text="My Marker"
             />
           </GoogleMapReact>

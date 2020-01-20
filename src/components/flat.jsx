@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 class Flat extends Component {
   handleClick = () => {
     this.props.updateSelected(this.props.flat.name);
+    this.props.updateCoord(this.props.flat.lat, this.props.flat.lng);
   }
 
   render() {

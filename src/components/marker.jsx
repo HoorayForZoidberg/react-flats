@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Marker extends Component {
   render() {
     return (
-      <div>this is a marker</div>
+      <FontAwesomeIcon icon={faMapMarkerAlt} size="3x" style={{ color: 'Coral' }}/>
     );
   }
 }

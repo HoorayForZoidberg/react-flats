@@ -27,6 +27,9 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "google-map-react": "^1.1.5",
     "postcss": "^7.0.26",
     "react": "16.2",
