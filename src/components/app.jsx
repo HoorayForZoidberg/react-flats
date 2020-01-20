@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import GoogleMap from './googleMap.jsx';
-import FlatList from './flatList.jsx';
+import GoogleMapReact from 'google-map-react';
+import Marker from './marker';
+import Key from '../../secrets';
+import FlatList from './flatList';
 
 class App extends Component {
   constructor (props) {
@@ -23,11 +25,32 @@ class App extends Component {
     });
   }
 
+  center = () => {
+    const { coord } = this.state;
+    return {
+      lat: coord.lat,
+      lng: coord.lng
+    };
+  }
+
   render() {
+    const { coord } = this.state;
     return (
       <div>
         <FlatList updateCoord={this.updateCoord} />
-        <GoogleMap coord={this.state.coord} />
+        <div className="map-container">
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: Key() }}
+            defaultCenter={this.center()}
+            defaultZoom={12}
+          >
+            <Marker
+              lat={coord.lat}
+              lng={coord.lng}
+              text="My Marker"
+            />
+          </GoogleMapReact>
+        </div>
       </div>
     );
   }
