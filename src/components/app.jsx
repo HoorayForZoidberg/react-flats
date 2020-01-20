@@ -5,13 +5,13 @@ import FlatList from './flatList.jsx';
 
 class App extends Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
-      coord : {
-        lat: 58,
-        lng: 58
+      coord: {
+        lat: 48.88,
+        lng: 2.35
       }
-    }
+    };
   }
 
   updateCoord = (newLat, newLng) => {
@@ -20,14 +20,14 @@ class App extends Component {
         lat: newLat,
         lng: newLng
       }
-    })
+    });
   }
 
   render() {
     return (
       <div>
-        <GoogleMap coord={this.state.coord} />
         <FlatList updateCoord={this.updateCoord} />
+        <GoogleMap coord={this.state.coord} />
       </div>
     );
   }

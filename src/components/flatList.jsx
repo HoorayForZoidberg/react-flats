@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Flats from './data/flats.jsx';
-import Flat from './flat.jsx';
+import Flats from './data/flats';
+import Flat from './flat';
 
 class FlatList extends Component {
   constructor(props) {
@@ -12,7 +12,8 @@ class FlatList extends Component {
   }
 
   selectFlat = (flat) => {
-    return this.state.selectedFlatName === flat.name;
+    const { selectedFlatName } = this.state;
+    return selectedFlatName === flat.name;
   }
 
   updateSelected = (name) => {
@@ -22,10 +23,11 @@ class FlatList extends Component {
   }
 
   render() {
+    const { updateCoord } = this.props;
     return (
       <div className="flat-list">
         {Flats.map((flat) => {
-          return <Flat flat={flat} key={flat.name} selected={this.selectFlat(flat)} updateSelected={this.updateSelected} updateCoord={this.props.updateCoord} />;
+          return <Flat flat={flat} key={flat.name} selected={this.selectFlat(flat)} updateSelected={this.updateSelected} updateCoord={updateCoord} />;
         })}
       </div>
     );
